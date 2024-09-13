@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Light Button</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #222;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .neon-button {
+            position: relative;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+            background-color: #000;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            transform: skew(-20deg);
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Glowing animation for button */
+        .neon-button::before,
+        .neon-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff);
+            transition: all 0.4s ease;
+            z-index: -1;
+            opacity: 0;
+            box-shadow: 0 0 15px rgba(255, 0, 110, 0.5),
+                        0 0 30px rgba(131, 56, 236, 0.5),
+                        0 0 45px rgba(58, 134, 255, 0.5);
+        }
+
+        .neon-button::before {
+            transform: skew(20deg);
+        }
+        .neon-button:hover::before {
+            opacity: 1;
+        }
+        .neon-button:hover {
+            color: #fff;
+            text-shadow: 0 0 10px #ff006e, 0 0 20px #8338ec, 0 0 30px #3a86ff;
+        }
+        #message {
+            color: white;
+            font-size: 24px;
+            margin-top: 20px;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="neon-button" id="neon-btn">Click Me!</button>
+    <div id="message">Button Clicked! Redirecting...</div>
+
+    <script>
+
+        document.querySelector('.neon-button').addEventListener('click', function() {
+            document.getElementById("message").style.visibility = "visible";
+            setTimeout(function() {
+                window.location.href = "https://unstop.com/competitions/1024247/register/edit?utm_source=TPOMessage&utm_medium=TPO&utm_campaign=flipkartgrid&ref=ejOjxi9h"; // Replace with your target URL
+            }, 2000); 
+        });
+    </script>
+
+</body>
+</html>
